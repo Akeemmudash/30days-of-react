@@ -1,3 +1,3 @@
 # Getting Started with  React
 
-## Created First  React Library Project.
+ __Day 1__. Created First  React Library Project.
