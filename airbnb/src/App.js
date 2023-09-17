@@ -18,7 +18,7 @@ function App() {
               price={item.price}
               rating={item.stats.rating}
               reviewCount={item.stats.reviewCount}
-              country={item.location}
+              location={item.location}
               img={item.coverImg}
               openSpots={item.openSpots}
             />

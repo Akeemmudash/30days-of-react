@@ -1,12 +1,18 @@
 import React from "react";
 
 
-export default function Card({title, openSpots, rating, reviewCount, country, price, img }) {
+export default function Card({title, openSpots, rating, reviewCount, location, price, img }) {
+  let badgeText;
+ if(openSpots === 0)
+  badgeText = "sold out";
+ else if(location.toLowerCase() === "online")
+ badgeText = "online";
+
   return (
     <div className="card w-40 md:w-44 text-xs pb-4 shadow-md mb-3 rounded-md">
       <figure className=" h-56 md:56 mb-2 relative">
-        <img src={`/images/${img}`} alt="Swimmer"  className="w-full h-full object-cover object-center rounded-md" />
-      {openSpots === 0 && <div className="availability px-2 text-xs  py-1 absolute top-0 left-0 bg-slate-50 mt-2 ms-2 rounded-sm uppercase">sold out</div>}
+        <img src={`/images/${img}`} alt="figure"  className="w-full h-full object-cover object-center rounded-md" />
+      {badgeText && <div className="availability px-2 text-xs  py-1 absolute top-0 left-0 bg-slate-50 mt-2 ms-2 rounded-sm uppercase">{badgeText}</div>}
       </figure> 
       <p className="align-middle">    
          <span className="rating  align-middle mt-3">
@@ -27,7 +33,7 @@ export default function Card({title, openSpots, rating, reviewCount, country, pr
         <span className="rating-no  leading-3 font-light text-gray-700"> {parseFloat(rating).toFixed(1)}</span>
       </span>
       <span className="reviews  leading-3 text-gray-400 font-light align-middle"> ({reviewCount})</span>
-      <span className=" text-gray-400 font-light text-xs "> <span className="font-thin text-[10px] align-middle">&#8226;</span><span className="align-middle"> {country}</span></span>
+      <span className=" text-gray-400 font-light text-xs "> <span className="font-thin text-[10px] align-middle">&#8226;</span><span className="align-middle"> {location}</span></span>
 </p>
       <div className="text-xs leading-5">
       <figcaption><h5 className="title font-light">{title}</h5></figcaption>
